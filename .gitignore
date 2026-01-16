@@ -1,0 +1,103 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Node/Frontend
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.next/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+fashion_advice_db/
+chroma_db/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Build artifacts
+dist/
+build/
+
+# Documentation
+docs/
+scripts/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Lock files (optional - comment out if you want to commit these)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Secrets and sensitive data
+secrets/
+.ssh/
+credentials.json
+*.pem
+*.key

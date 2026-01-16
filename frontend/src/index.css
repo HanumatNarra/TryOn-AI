@@ -1,0 +1,491 @@
+/* Import Inter font for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Import custom animations */
+@import './styles/animations.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Improvements for Landing Page Refinement */
+:root {
+  /* Enhanced spacing scale */
+  --section-spacing-tight: 2rem;
+  --section-spacing-normal: 2.5rem;
+  --section-spacing-relaxed: 3rem;
+  --section-spacing-loose: 3.5rem;
+  
+  /* Consistent animation timing */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+  --transition-slower: 700ms;
+  
+  /* Enhanced shadow system */
+  --shadow-subtle: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-strong: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-extra: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  
+  /* Unified gradient system */
+  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --gradient-primary-hover: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+  --gradient-secondary: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  --gradient-accent: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  
+  /* Consistent border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 28px;
+  --radius-pill: 9999px;
+}
+
+/* Enhanced section spacing */
+.section {
+  padding: var(--section-spacing-tight) 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--section-spacing-normal) 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: var(--section-spacing-relaxed) 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section {
+    padding: var(--section-spacing-loose) 0;
+  }
+}
+
+/* Consistent hover animations */
+.hover-lift {
+  transition: transform var(--transition-normal) cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow var(--transition-normal) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* Enhanced button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal) cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
+  font-family: inherit;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  color: white;
+  box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.25);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 25px 0 rgba(139, 92, 246, 0.35);
+  background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+}
+
+.btn-primary:active {
+  box-shadow: 0 2px 8px 0 rgba(139, 92, 246, 0.25);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:active {
+  background: #f3f4f6;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: #374151;
+  border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+  background: rgba(55, 65, 81, 0.05);
+  border-color: #d1d5db;
+}
+
+.btn-ghost:active {
+  background: rgba(55, 65, 81, 0.1);
+}
+
+/* Button Sizes */
+.btn-sm {
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+}
+
+.btn-lg {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}
+
+.btn-xl {
+  font-size: 1.125rem;
+  padding: 1.25rem 2.5rem;
+}
+
+/* Button with Icon */
+.btn-icon {
+  transition: transform var(--transition-normal) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn:hover .btn-icon {
+  transform: translateX(2px);
+}
+
+/* Group Button (for primary buttons with icons) */
+.btn.group:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced focus states */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2;
+}
+
+/* Consistent image hover effects */
+.image-hover {
+  transition: transform var(--transition-normal) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.image-hover:hover {
+  transform: scale(1.02);
+}
+
+/* Enhanced card shadows */
+.card {
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow var(--transition-normal) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-medium);
+}
+
+/* Shimmer animation for loading states */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Improved typography hierarchy */
+.h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.h4 {
+  font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.h5 {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+/* Enhanced container max-widths */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: 1280px;
+}
+
+.container.max-w-7xl {
+  max-width: 80rem;
+}
+
+/* Improved spacing utilities */
+.space-y-tight > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-normal > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-y-relaxed > * + * {
+  margin-top: 2rem;
+}
+
+/* Enhanced gradient utilities */
+.gradient-radial {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+}
+
+.gradient-subtle {
+  background: linear-gradient(135deg, rgb(248 250 252) 0%, rgb(241 245 249) 100%);
+}
+
+/* Improved animation easing */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up var(--transition-slower) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale var(--transition-slower) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Enhanced responsive utilities */
+@media (max-width: 640px) {
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Improved accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  .image-hover:hover {
+    transform: none;
+  }
+}
+
+/* Custom Scrollbar for Try-On page */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+}
+
+/* Shimmer animation for button */
+@keyframes shimmer-button {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer-button 2s infinite linear;
+}
+
+/* Gradient animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 100%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Bounce once animation */
+@keyframes bounce-once {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce-once {
+  animation: bounce-once 0.6s ease-out;
+}
+
+/* Pulse slow animation */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Fade in right animation */
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-right {
+  animation: fade-in-right 0.5s ease-out;
+}
+
+/* Fade in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
