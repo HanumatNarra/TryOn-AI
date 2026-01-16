@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import { AuthProvider } from './contexts/AuthContext'
-import { ThemeProvider } from './lib/ui/ThemeProvider.tsx'
+import { ThemeProvider } from './lib/ui/ThemeProvider'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
