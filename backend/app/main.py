@@ -1364,6 +1364,21 @@ async def health_check():
     """Health check endpoint for monitoring"""
     return {"status": "healthy", "timestamp": time.time()}
 
+# Keepalive endpoint - prevents Supabase free tier from auto-pausing
+@app.get("/keepalive")
+async def keepalive():
+    """
+    Pings Supabase with a lightweight query to prevent auto-pause on the free tier.
+    Point an external cron service (e.g. cron-job.org) at this endpoint every 6 days.
+    """
+    if supabase is None:
+        return {"status": "ok", "db": "not_configured", "timestamp": time.time()}
+    try:
+        supabase.table("wardrobe").select("id").limit(1).execute()
+        return {"status": "ok", "db": "reachable", "timestamp": time.time()}
+    except Exception as e:
+        return {"status": "ok", "db": "error", "detail": str(e), "timestamp": time.time()}
+
 # Root endpoint
 @app.get("/")
 async def root():
