@@ -74,6 +74,8 @@ TryOn.AI lets you build a digital wardrobe and virtually try on your clothes usi
 ---
 
 ## Tech Stack
+![Tech Stack](frontend/public/images/Tech_stack.png)
+
 
 | Layer | Technology |
 |---|---|
